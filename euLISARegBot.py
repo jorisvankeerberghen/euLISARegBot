@@ -174,7 +174,7 @@ def run_mistral(user_message, model):
         print("Failed after 5 attempts due to rate limite issues.")
         return None
 
-def chatbot_response(question,distance_threshold=0.5, max_chunks=20):
+def chatbot_response(question,distance_threshold=0.8, max_chunks=20):
     #Create embeddings for the user question
     question_embeddings = np.array([get_text_embedding(question)])
 
