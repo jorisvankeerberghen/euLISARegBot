@@ -201,13 +201,24 @@ def chatbot_response(question,distance_threshold=0.5, max_chunks=20):
     model ="mistral-medium-latest"
     prompt = f"""
     You are provided with the following context, which includes specific articles from various regulations.
-    Please answer the following query by referring to each and every regulation and article number from the context. When referring to the regulations mention the Article, Regulation (EU) number with a summary of the regulation name like EES, ETIAS, eu-LISA, Interoperability.
+    Please answer the following query by enumerating each relevant point, and referring to each and every regulation and article number from the context. When referring to the regulations, ensure the following format is used: 
+
+    - Regulation (EU) 2019/817 (IO):
+    - Regulation (EU) 2018/1240 (ETIAS):
+    - Regulation (EU) 2018/1726 (eu-LISA):
+    - Regulation (EU) 2017/2226 (EES):
+
+    Structure your answer with clearly numbered points, each corresponding to a different regulation or article as applicable.
 
     Context:
     ---------------------------
     {context}
     Query: {question}
     Answer:
+    1. 
+    2. 
+    3. 
+    4. 
     """
     response = run_mistral(prompt, model)
     return response
