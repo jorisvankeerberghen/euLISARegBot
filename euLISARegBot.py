@@ -1,5 +1,4 @@
 import html
-from turtle import distance
 from mistralai import Mistral
 import numpy as np
 import faiss
